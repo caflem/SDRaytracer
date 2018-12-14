@@ -1,0 +1,16 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "caflem-github"
+    token: $SONAR_TOKEN
+
+notifications:
+  email:
+  - s4caflem@uni-trier.de
+  on_success: always
+  on_failure: always
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar

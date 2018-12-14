@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /* Implementation of a very simple Raytracer
-   Stephan Diehl, Universität Trier, 2010-2016
+   Stephan Diehl, Universitaet Trier, 2010-2016
 */
 
 
@@ -73,7 +73,7 @@ public static void  main(String argv[])
 void profileRenderImage(){
   long end, start, time;
 
-  renderImage(); // initialisiere Datenstrukturen, erster Lauf verfälscht sonst Messungen
+  renderImage(); // initialisiere Datenstrukturen, erster Lauf verfaelscht sonst Messungen
   
   for(int procs=1; procs<6; procs++) {
 
@@ -255,7 +255,7 @@ RGB lighting(Ray ray, IPoint ip, int rec) {
    
      Cube.addCube(triangles, 0,35,0, 10,10,10,new RGB(0.3f,0,0),0.4f);       //rot, klein
      Cube.addCube(triangles, -70,-20,-20, 20,100,100,new RGB(0f,0,0.3f),.4f);
-     Cube.addCube(triangles, -30,30,40, 20,20,20,new RGB(0,0.4f,0),0.2f);        // grün, klein
+     Cube.addCube(triangles, -30,30,40, 20,20,20,new RGB(0,0.4f,0),0.2f);        // gruen, klein
      Cube.addCube(triangles, 50,-20,-40, 10,80,100,new RGB(.5f,.5f,.5f), 0.2f);
      Cube.addCube(triangles, -70,-26,-40, 130,3,40,new RGB(.5f,.5f,.5f), 0.2f);
 
@@ -345,7 +345,7 @@ class Ray {
    void setDir(float dx, float dy, float dz) { dir=new Vec3D(dx, dy, dz); }
    void normalize() {  dir.normalize(); }
    
-   // see Möller&Haines, page 305
+   // see MuellerUNDHaines, page 305
    IPoint intersect(Triangle t)
     { float epsilon=IPoint.epsilon;
       Vec3D e1 = t.p2.minus(t.p1);
