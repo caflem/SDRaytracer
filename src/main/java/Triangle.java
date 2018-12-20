@@ -1,9 +1,9 @@
 class Triangle
 {
-    public Vec3D x, y, z;
-    public RGB color;
-    public Vec3D normal;
-    public float shininess;
+    Vec3D x, y, z;
+    RGB color;
+    Vec3D normal;
+    float shininess;
 
     Triangle(Vec3D x, Vec3D y, Vec3D z, RGB color, float shininess)
     {

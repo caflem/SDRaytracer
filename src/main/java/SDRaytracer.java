@@ -13,23 +13,23 @@ public class SDRaytracer //extends JFrame
 {
 
     private static final long serialVersionUID = 1L;
-    public Window window;
+    Window window;
 
-    public int availableProcessors = Runtime.getRuntime().availableProcessors(); //doppelt aber geht nicht anders
+    int availableProcessors = Runtime.getRuntime().availableProcessors(); //doppelt aber geht nicht anders
 
-    public int maxRec = 3;
-    public int rayPerPixel = 1;
+    int maxRec = 3;
+    int rayPerPixel = 1;
 
-    public int startX;
-    public int startY;
-    public int startZ;
+    int startX;
+    int startY;
+    int startZ;
 
 
     List<Triangle> triangles;
 
-    public Light mainLight = new Light(new Vec3D(0, 100, 0), new RGB(0.1f, 0.1f, 0.1f));
+    Light mainLight = new Light(new Vec3D(0, 100, 0), new RGB(0.1f, 0.1f, 0.1f));
 
-    public Light lights[] = new Light[]{mainLight
+    Light lights[] = new Light[]{mainLight
             , new Light(new Vec3D(100, 200, 300), new RGB(0.5f, 0, 0.0f))
             , new Light(new Vec3D(-100, 200, 300), new RGB(0.0f, 0, 0.5f))
             //,new Light(new Vec3D(-100,0,0), new RGB(0.0f,0.8f,0.0f))
@@ -43,8 +43,8 @@ public class SDRaytracer //extends JFrame
 
 
 
-    public int yAngleFactor = 4;
-    public int xAngleFactor = -4;
+    int yAngleFactor = 4;
+    int xAngleFactor = -4;
 
 
     SDRaytracer()
@@ -56,7 +56,7 @@ public class SDRaytracer //extends JFrame
 
 
 
-    public RGB rayTrace(Ray ray, int rec) //evt in Klasse RAy tun
+    RGB rayTrace(Ray ray, int rec) //evt in Klasse RAy tun
     {
         if (rec > maxRec) return black;
         IPoint ip = hitObject(ray);  // (ray, p, n, triangle);
@@ -67,7 +67,7 @@ public class SDRaytracer //extends JFrame
     }
 
 
-    public IPoint hitObject(Ray ray) {
+    IPoint hitObject(Ray ray) {
         IPoint isect = new IPoint(null, null, -1);
         float idist = -1;
         for (Triangle t : triangles)
@@ -85,7 +85,7 @@ public class SDRaytracer //extends JFrame
     }
 
 
-    public RGB lighting(Ray ray, IPoint iPoint, int rec) //nicht anfassen
+    RGB lighting(Ray ray, IPoint iPoint, int rec) //nicht anfassen
     {
         Vec3D point = iPoint.vec3D;
         Triangle triangle = iPoint.triangle;
@@ -133,7 +133,7 @@ public class SDRaytracer //extends JFrame
 
     }
 
-    public void createScene()
+    void createScene()
     {
         triangles = new ArrayList<Triangle>();
 
@@ -153,7 +153,7 @@ public class SDRaytracer //extends JFrame
         m.apply(triangles);
     }
 
-    public void createCube(int x, int y, int z, int w, int h, int d, RGB c, float sh)
+    void createCube(int x, int y, int z, int w, int h, int d, RGB c, float sh)
     {  //front
         triangles.add(new Triangle(new Vec3D(x, y, z), new Vec3D(x + w, y, z), new Vec3D(x, y + h, z), c, sh));
         triangles.add(new Triangle(new Vec3D(x + w, y, z), new Vec3D(x + w, y + h, z), new Vec3D(x, y + h, z), c, sh));

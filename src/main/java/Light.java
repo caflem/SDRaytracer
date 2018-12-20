@@ -1,7 +1,7 @@
 class Light //bleibt da sonst ind er hauptklasse zwei weitere arrays benoetigt werden wuerden
 {
-    public RGB color;
-    public Vec3D position;
+    RGB color;
+    Vec3D position;
 
     Light(Vec3D position, RGB rgb)
     {

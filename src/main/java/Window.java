@@ -9,29 +9,29 @@ import java.util.concurrent.Future;
 
 public class Window extends JFrame
 {
-    private boolean profiling = false;
+    boolean profiling = false;
 
-    public int windowWidth = 1000;
-    public int windowHeight = 1000;
+    int windowWidth = 1000;
+    int windowHeight = 1000;
     //int maxRec = 3;
-    private float fovx = (float) 0.628;
-    private float fovy = (float) 0.628;
+    float fovx = (float) 0.628;
+    float fovy = (float) 0.628;
 
-    public double tanFovX;
-    public double tanFovY;
-
-
-    private Future[] futureList = new Future[windowWidth];
-
-    public RGB[][] image = new RGB[windowWidth][windowHeight];
-
-    private SDRaytracer sdRaytracer;
-    private int availableProcessors = Runtime.getRuntime().availableProcessors();
-
-    private ExecutorService executorService = Executors.newFixedThreadPool(availableProcessors);
+    double tanFovX;
+    double tanFovY;
 
 
-    public Window(SDRaytracer sdraytracer)
+    Future[] futureList = new Future[windowWidth];
+
+    RGB[][] image = new RGB[windowWidth][windowHeight];
+
+    SDRaytracer sdRaytracer;
+    int availableProcessors = Runtime.getRuntime().availableProcessors();
+
+    ExecutorService executorService = Executors.newFixedThreadPool(availableProcessors);
+
+
+    Window(SDRaytracer sdraytracer)
     {
 
         sdRaytracer = sdraytracer;
@@ -120,7 +120,7 @@ public class Window extends JFrame
         });
     }
 
-    public void renderImage()
+    void renderImage()
     {
         tanFovX = Math.tan(fovx);
         tanFovY = Math.tan(fovy);
@@ -143,7 +143,7 @@ public class Window extends JFrame
         }
     }
 
-    public void profileRenderImage() {
+    void profileRenderImage() {
         long end, start, time;
 
         this.renderImage(); // initialisiere Datenstrukturen, erster Lauf verfaelscht sonst Messungen

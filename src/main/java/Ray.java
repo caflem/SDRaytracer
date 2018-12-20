@@ -1,16 +1,16 @@
 class Ray
 {
-    public Vec3D start=new Vec3D(0,0,0);
-    public Vec3D direction =new Vec3D(0,0,0);
+    Vec3D start=new Vec3D(0,0,0);
+    Vec3D direction =new Vec3D(0,0,0);
 
-    public void setStart(float x, float y, float z) { start=new Vec3D(x,y,z); }
+    void setStart(float x, float y, float z) { start=new Vec3D(x,y,z); }
 
-    public void setDirection(float dx, float dy, float dz) { direction =new Vec3D(dx, dy, dz); }
+    void setDirection(float dx, float dy, float dz) { direction =new Vec3D(dx, dy, dz); }
 
-    public void normalize() {  direction.normalize(); }
+    void normalize() {  direction.normalize(); }
 
-    // see Mueller&Haines, page 305
-    public IPoint intersect(Triangle triangle) //keine extra Methoden
+    //see Mueller&Haines, page 305
+    IPoint intersect(Triangle triangle) //keine extra Methoden
     {
         float epsilon=IPoint.epsilon;
         Vec3D e1 = triangle.y.subtraction(triangle.x); //subtrahiert  2 Vektoren x von y

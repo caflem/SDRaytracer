@@ -2,9 +2,9 @@ import java.util.concurrent.Callable;
 
 class RaytraceTask implements Callable // fuer multithreading
 {
-    private SDRaytracer tracer;
-    private Window window;
-    private int i;
+    SDRaytracer tracer;
+    Window window;
+    int i;
 
 
 

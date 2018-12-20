@@ -7,7 +7,7 @@ class RGB  //siehe oben
     private float blue;
     private Color color;
 
-    public RGB(float red, float green, float blue)
+    RGB(float red, float green, float blue)
     {
        checkSingleColors(red, green, blue);
     }
@@ -26,7 +26,7 @@ class RGB  //siehe oben
         this.blue = blue;
     }
 
-    public Color createColor()
+    Color createColor()
     {
         if (color != null)
             return color;
@@ -34,7 +34,7 @@ class RGB  //siehe oben
         return color;
     }
 
-    public static RGB addColors(RGB color1, RGB color2, float ratio) //in Klasse RGB Verschieben !
+    static RGB addColors(RGB color1, RGB color2, float ratio) //in Klasse RGB Verschieben !
     {
         return new RGB((color1.red + color2.red * ratio),
                 (color1.green + color2.green * ratio),

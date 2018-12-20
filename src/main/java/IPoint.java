@@ -1,9 +1,9 @@
 class IPoint
 {
-    public final static float epsilon = 0.0001f;
-    public Triangle triangle;
-    public Vec3D vec3D;
-    public float distance;
+    final static float epsilon = 0.0001f;
+    Triangle triangle;
+    Vec3D vec3D;
+    float distance;
 
     IPoint(Triangle triangle, Vec3D vec3D, float distance)
     {
